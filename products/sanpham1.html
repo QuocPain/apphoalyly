@@ -1,0 +1,56 @@
+<div class="product-item">
+    <img src="{{ url_for('static', filename='images/sanpham1.jpg') }}" alt="Hoa Hồng Đỏ">
+    <span class="product-name">Hoa Hồng Đỏ</span>
+    <span class="product-price">100,000 VND</span>
+    <a href="{{ url_for('add_to_cart', product_id=1) }}" class="add-to-cart">Thêm vào giỏ hàng</a>
+</div>
+
+<style>
+    .product-item {
+        width: 250px;
+        padding: 15px;
+        border-radius: 5px;
+        background: #fff;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .product-item img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .product-name {
+        font-size: 18px;
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+
+    .product-price {
+        font-size: 16px;
+        color: #28a745;
+        font-style: italic;
+        display: block;
+        margin-top: 5px;
+    }
+
+    .add-to-cart {
+        display: inline-block;
+        margin-top: 10px;
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 12px;
+        border: 1px solid #007bff;
+        border-radius: 4px;
+        transition: 0.3s;
+    }
+
+    .add-to-cart:hover {
+        background-color: #007bff;
+        color: white;
+    }
+</style>

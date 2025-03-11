@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>ShopHoaVenus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Sản phẩm</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <h1 class="shop-name">Shop Hoa Venus</h1>
+        <div class="shop-tagline">
+            <div class="marquee">
+                <span>Chào mừng bạn đến với ShopHoaVenus - Nơi gửi gắm yêu thương qua những đóa hoa!</span>
+            </div>
+        </div>
+    </header>
+    
+    <section>
+        <div class="shop-banner">
+            <img src="{{ url_for('static', filename='images/poster.jpg') }}" alt="Poster quảng cáo">
+        </div>
+        <div class="product-container">   
+            <h2>Sản phẩm của chúng tôi</h2>
+            <div class="product" data-name="Hoa Hồng" data-price="200000">
+                <img src="{{ url_for('static', filename='images/hoa_hong.jpg') }}" alt="Hoa Hồng">
+                <h3>Hoa Hồng</h3>
+                <p>Giá: 200.000 VNĐ</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product" data-name="Hoa Cúc" data-price="250000">
+                <img src="{{ url_for('static', filename='images/hoa_cuc.jpg') }}" alt="Hoa Cúc">
+                <h3>Hoa Cúc</h3>
+                <p>Giá: 250.000 VNĐ</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="product" data-name="Hoa Tulip" data-price="300000">
+                <img src="{{ url_for('static', filename='images/hoa_tulip.jpg') }}" alt="Hoa Tulip">
+                <h3>Hoa Tulip</h3>
+                <p>Giá: 300.000 VNĐ</p>
+                <button class="add-to-cart">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Liên hệ với chúng tôi</h2>
+        <form>
+            <label for="name">Tên:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Tin nhắn:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Gửi</button>
+        </form>
+    </section>
+
+    <!-- Nút giỏ hàng ở góc phải dưới -->
+    <div class="cart-container">
+        <button id="cart-button">🛒 Xem giỏ hàng</button>
+        <div id="cart-popup" class="hidden">
+            <h3>Giỏ hàng</h3>
+            <ul id="cart-items"></ul>
+            <button id="close-cart">Đóng</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let cart = [];
+            const cartButton = document.getElementById("cart-button");
+            const cartPopup = document.getElementById("cart-popup");
+            const closeCartButton = document.getElementById("close-cart");
+            const cartItemsList = document.getElementById("cart-items");
+
+            // Thêm sản phẩm vào giỏ hàng
+            document.querySelectorAll(".add-to-cart").forEach(button => {
+                button.addEventListener("click", function() {
+                    let product = this.parentElement;
+                    let name = product.dataset.name;
+                    let price = product.dataset.price;
+                    cart.push({ name, price });
+                    updateCartDisplay();
+                });
+            });
+
+            // Hiển thị hoặc ẩn giỏ hàng khi nhấn nút
+            cartButton.addEventListener("click", function() {
+                cartPopup.classList.toggle("hidden");
+            });
+
+            // Đóng giỏ hàng
+            closeCartButton.addEventListener("click", function() {
+                cartPopup.classList.add("hidden");
+            });
+
+            // Cập nhật danh sách giỏ hàng
+            function updateCartDisplay() {
+                cartItemsList.innerHTML = "";
+                cart.forEach(item => {
+                    let li = document.createElement("li");
+                    li.textContent = `${item.name} - ${item.price} VNĐ`;
+                    cartItemsList.appendChild(li);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+/*  Header - Tên shop và câu chào */
+header {
+    text-align: center;
+    background: linear-gradient(to right, #ff7eb3, #ff758c);
+    padding: 30px 20px;
+    color: white;
+    margin-bottom: 20px;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/*  Hiệu ứng cho tên shop */
+.shop-name {
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 3px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(45deg, #fff, #ffeb3b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+    animation: glow 2s infinite alternate;
+}
+
+/* Hiệu ứng phát sáng */
+@keyframes glow {
+    from {
+        text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+    }
+    to {
+        text-shadow: 4px 4px 10px rgba(255, 255, 255, 0.9);
+    }
+}
+
+.shop-tagline {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    text-align: center; /* Căn giữa nội dung */
+    font-family: "Poppins", sans-serif; /* Chọn font chữ */
+    font-size: 20px; /* Kích thước chữ */
+    font-weight: bold; /* In đậm */
+    color: #0000FF; /* Màu chữ */
+    
+    padding: 10px 0; /* Thêm khoảng cách trên dưới */
+    border-radius: 5px;
+}
+
+/* Vùng chứa chạy chữ */
+.marquee {
+    display: inline-block;
+    white-space: nowrap;
+    min-width: 100%;
+    animation: marquee 12s linear infinite;
+    padding: 5px 10px;
+    font-size: 24px; /* Tăng kích thước chữ */
+    font-weight: bold;
+    color: #99CCFF; /* Màu chữ */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+}
+
+/* Hiệu ứng chạy chữ liên tục từ phải sang trái */
+@keyframes marquee {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+
+
+/* định dạng poster*/
+.shop-banner {
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc nếu có chiều cao */
+    margin: 30px auto;
+    padding: 10px;
+    max-width: 100%;
+    position: relative; /* Cho phép di chuyển */
+    top: 590px; /* Di chuyển xuống */
+    left: 10px; /* Di chuyển sang phải */
+    z-index: 1; /* Đảm bảo poster không bị che */
+}
+
+.shop-banner img {
+    width: 80%;
+    max-width: 1200px;
+    height: auto; /* Đảm bảo không bị méo */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+
+}
+
+.shop-banner img:hover {
+    transform: scale(1.02);
+}
+
+
+/*  Phần sản phẩm */
+section {
+    text-align: center;
+    padding: 20px;
+    position: absolute; /* Định vị tuyệt đối */
+    bottom: 10px; /* Điều chỉnh vị trí theo chiều dọc */
+    left: 50%; /* Căn giữa theo chiều ngang */
+    transform: translateX(-50%); /* Căn giữa hoàn toàn */
+    width: 100%; /* Đảm bảo không bị thu hẹp */
+}
+
+h2 {
+    font-size: 28px;
+    color: #333;
+}
+
+/* định dạng dòng chữ danh sách sản phẩm */
+.product-container {
+    position: absolute; /* Định vị sản phẩm độc lập */
+    top: 1200px; /* Điều chỉnh khoảng cách xuống dưới poster */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+
+/*  Định dạng từng sản phẩm */
+.product {
+    display: inline-block;
+    width: 250px;
+    background: #fff;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/* nút thêm giỏi hàng */
+.product:hover {
+    transform: scale(1.05);
+}
+
+.cart-button {
+    position: fixed;
+    top: -40px;
+    right: 32px;
+    background-color: #ff4081;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease-in-out;
+}
+
+.cart-button:hover {
+    background-color: #d81b60;
+}
+
+
+/*  Ảnh sản phẩm */
+.product img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/*  Tên sản phẩm */
+.product h3 {
+    font-size: 22px;
+    margin: 10px 0;
+    color: #ff4081;
+}
+
+/*  Giá sản phẩm */
+.product p {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+/*  Màu riêng biệt cho từng sản phẩm */
+.product-rose {
+    border: 2px solid #ff4081;
+}
+
+.product-daisy {
+    border: 2px solid #ffcc00;
+}
+
+.product-tulip {
+    border: 2px solid #6a0dad;
+}
+nav {
+    background: #ff4081;
+    padding: 10px 0;
+    text-align: center;
+}
+
+
+/* thanh điều hướng menu */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+
+/* Đảm bảo phần cha có position: relative để .contact di chuyển độc lập */
+body {
+    position: relative; /* Quan trọng để .contact không bị lệch */
+}
+
+/* Điều chỉnh form liên hệ */
+.contact {
+    font-size: 12px;
+    position: fixed; /* Giữ nguyên vị trí trên màn hình */
+    bttom: 20px; 
+    left: 1420px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+    z-index: 999; /* Đảm bảo form nổi lên trên */
+}
+
+/* Căn giữa nội dung form */
+.contact form {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Cải thiện giao diện input & textarea */
+.contact input,
+.contact textarea {
+    width: calc(100% - 20px); /* Đảm bảo không bị tràn */
+    padding: 10px;
+    font-size: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Cải thiện nút gửi */
+.contact button {
+    font-size: 12px;
+    background: #ff4081;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.contact button:hover {
+    background: #d81b60;
+}
+.contact h2 {
+    font-size: 16px; /* Tăng/giảm cỡ chữ tiêu đề */
+    font-weight: bold;
+}
+
+
+
+/* hiện thị cho điện thoại */
+@media (max-width: 768px) {
+    .shop-banner img {
+        width: 100%; /* Ảnh poster thu nhỏ để vừa màn hình */
+    }
+    
+    .product {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Nút xem giỏ hàng */
+.cart-container {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    z-index: 100;
+}
+
+#cart-button {
+    background: #ffcc00;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#cart-button:hover {
+    background: #d81b60;
+}
+
+/* Popup giỏ hàng */
+#cart-popup {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    background: white;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: none;
+    width: 250px;
+}
+
+#cart-popup h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+#cart-items {
+    list-style: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#cart-items li {
+    font-size: 14px;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+#close-cart {
+    background: #ff4081;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#close-cart:hover {
+    background: #d81b60;
+}
+
+/* Ẩn popup ban đầu */
+.hidden {
+    display: none;
+}
